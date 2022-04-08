@@ -18,9 +18,16 @@ public class API {
         // Deve retornar uma segunda FilaCircular R
         // contendo os elementos de A em ordem inversa.
 
-        FilaCircular R = FilaCircular.cria_fila( 1 ); // acertar tamanho
+        FilaCircular R = FilaCircular.cria_fila(A.getTamanho()); // acertar tamanho
+        FilaCircular Reserva = A;
+        Pilha P = new Pilha(A.getTamanho());
+        for(int i = Reserva.remover(); i != -1; i = Reserva.remover()){
+            P.empilha(i);
+        }
+        for(int j = P.desempilha(); j != -1; j = P.desempilha()){
+            R.inserir(j);
+        }
         // coloque o código necessário para fazer a copia de A.
-
         return R;
     }
     // Questão 4.

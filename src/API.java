@@ -25,11 +25,25 @@ public class API {
     }
     // Questão 4.
     public Pilha copia(Pilha A){
-        Pilha R = Pilha.cria_pilha( 1 );
+        FilaCircular fila = new FilaCircular(A.getTamanhoMaximo());
 
-        System.out.println(A.topo());
+        int count = 0;
+        while(A.topo() != -1) {
+            fila.inserir(A.topo());
+            A.desempilha();
+            count++;
+        }
 
-        return R;
+        Pilha result = Pilha.cria_pilha( count );
+
+        for(int i =0; i<count; i++) {
+            int temp = fila.remover();
+
+            A.empilha(temp);
+            result.empilha(temp);
+        }
+
+        return result;
     }
 
     // questão 5.
@@ -60,12 +74,14 @@ public class API {
         //R2.imprimir();
 
         // Questão 04 - chamadas parcialmente dadas
-        Pilha A3 = new Pilha( 1 );
+        Pilha A3 = new Pilha( 2 );
         A3.empilha(69);
-        A3.
+        A3.empilha(68);
+
         Pilha R3 = api.copia(A3);
-        //A3.imprimir();
-        //R3.imprimir();
+
+        A3.imprimir();
+        R3.imprimir();
 
         // Questão 05 - chamadas parcialmente dadas
 //        String expressao = "";

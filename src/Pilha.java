@@ -9,6 +9,10 @@ class Pilha {
         this.topo = -1;
     }
 
+    public int getTamanhoMaximo() {
+        return this.tamanhoMaximo;
+    }
+
     // retorna true se a pilha está vazia e false caso contrário 
     private boolean estaVazia() {
         if (this.topo == -1) {

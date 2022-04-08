@@ -1,3 +1,4 @@
+import Semana06.FilaCircular;
 
 public class API {
     
@@ -7,14 +8,17 @@ public class API {
     // Questão 02.
     // Questão 02.
 
-	public FilaCircular merge(FilaCircular A, FilaCircular B, int size){
+	// Questão 02.
+    public FilaCircular merge(src.entities.FilaCircular A, FilaCircular B){
     
-        FilaCircular R = FilaCircular.cria_fila(size*2); // acertar tamanho
+    	int size = A.getTamanho() + B.getTamanho();
+    	
+        FilaCircular R = FilaCircular.cria_fila(size); // acertar tamanho
     	
     	int auxA = A.remover();
     	int auxB = B.remover();
     	
-    	for(int i = 0; i < size*2; i++) {
+    	for(int i = 0; i < size; i++) {
     		if(auxA > auxB) {
     			if(auxA == -1) {
     				R.inserir(auxA);
@@ -35,10 +39,6 @@ public class API {
     			}
 			}	
     	}
-        // Deve retornar uma terceira FilaCircular R, onde R
-        // contem o merge de A e B.
-        
-        // coloque o código necessário para fazer o merge de A e B.
         return R;
     }
 
@@ -141,16 +141,16 @@ public class API {
         API api = new API();
 
         // Questão 02 - chamadas parcialmente dadas
-//        FilaCircular A1 = new FilaCircular( 1 );
-//        FilaCircular B1 = new FilaCircular( 1 );
-//        FilaCircular R1 = api.merge(A1, B1);
+        FilaCircular A1 = new FilaCircular( 1 );
+        FilaCircular B1 = new FilaCircular( 1 );
+        FilaCircular R1 = api.merge(A1, B1);
         //A1.imprimir();
         //B1.imprimir();
         //R1.imprimir();
 
         // Questão 03 - chamadas parcialmente dadas
-//        FilaCircular A2 = new FilaCircular( 1 );
-//        FilaCircular R2 = api.inverteFila(A2);
+        FilaCircular A2 = new FilaCircular( 1 );
+        FilaCircular R2 = api.inverteFila(A2);
         //A2.imprimir();
         //R2.imprimir();
 

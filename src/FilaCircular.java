@@ -14,6 +14,10 @@ class FilaCircular {
         return (this.primeiro + this.n) % this.tamanho;
     }
 
+    public int getTamanho() {
+    	return tamanho;
+    }
+    
     private int inicio() {
         return (this.primeiro + 1) % this.tamanho;
     }

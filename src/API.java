@@ -48,12 +48,56 @@ public class API {
 
     // questão 5.
     public boolean avaliaExpressao(String exp){
+        Pilha pilha = new Pilha(exp.length());
 
-        boolean verdadeira = false;
-        // coloque o código necessário
-        // para avaliar expressões
+        // 3: {
+        // 2: (
+        // 1: [
 
-        return verdadeira;
+        for(int i = 0; i < exp.length() ; i++) {
+            switch (exp.charAt(i)) {
+                case '{':
+                case '[':
+                case '(':
+                    pilha.empilha(exp.charAt(i));
+                    break;
+
+            }
+        }
+
+        System.out.print("antes: ");
+        pilha.imprimirChar();
+
+        for(int i =0; i < exp.length(); i++) {
+            switch (exp.charAt(i)) {
+                case '}':
+                    if (pilha.topo() == '{') {
+                        pilha.desempilha();
+                     } else {
+                        return false;
+                    }
+                    break;
+                case ')':
+                    if (pilha.topo() == '(') {
+                        pilha.desempilha();
+                    } else {
+                        return false;
+                    }
+                    break;
+                case ']':
+                    if (pilha.topo() == '[') {
+                        pilha.desempilha();
+                    } else {
+                        return false;
+                    }
+                    break;
+            }
+        }
+
+        System.out.print("depois: ");
+        pilha.imprimirChar();
+
+        return pilha.topo() == -1;
     }
 
     public static void main(String [] args){
@@ -84,9 +128,24 @@ public class API {
         R3.imprimir();
 
         // Questão 05 - chamadas parcialmente dadas
-//        String expressao = "";
-//        boolean R4 = api.avaliaExpressao(expressao);
-        //System.out.println("Expressao: " + expressao);
-        //System.out.println("Correta: " + R4);
+        String expressao1 = "{A*(A+B)}";
+        boolean R4 = api.avaliaExpressao(expressao1);
+        System.out.println("Expressao: " + expressao1);
+        System.out.println("Correta: " + R4);
+
+        String expressao2 = "(1+5)*(56+12)";
+        boolean R5 = api.avaliaExpressao(expressao2);
+        System.out.println("Expressao: " + expressao2);
+        System.out.println("Correta: " + R5);
+
+        String expressao3 = "(1+5)*)56+12)";
+        boolean R6 = api.avaliaExpressao(expressao3);
+        System.out.println("Expressao: " + expressao3);
+        System.out.println("Correta: " + R6);
+
+        String expressao4 = "(((1+2)-3)*6)";
+        boolean R7 = api.avaliaExpressao(expressao4);
+        System.out.println("Expressao: " + expressao4);
+        System.out.println("Correta: " + R7);
     }
 }

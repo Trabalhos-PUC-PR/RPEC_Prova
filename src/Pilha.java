@@ -71,6 +71,18 @@ class Pilha {
         }
     }
 
+    public void imprimirChar() {
+        if (!this.estaVazia()) {
+            System.out.print("\n[Topo] ");
+            for (int i = 0; i <= this.topo; i++){
+                System.out.print((char)this.dados[i] + " ");
+            }
+            System.out.println("[base]");
+        }else{
+            System.out.println("Pilha Vazia");
+        }
+    }
+
     // cria uma pilha capaz de armazenar até n elementos
     public static Pilha cria_pilha(int n){
         Pilha p = null;

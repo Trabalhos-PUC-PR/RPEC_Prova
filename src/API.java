@@ -5,14 +5,40 @@ public class API {
     // imprimir   Início-> [0]: 68 [1]: 35 [2]: 10 [3] : 21 <-Ultimo [4]: 
     // lista nativa [0] : 10 [1]: 21 [2]: 75 [3] : 68 [4]: 35
     // Questão 02.
-    public FilaCircular merge(FilaCircular A, FilaCircular B){
+    // Questão 02.
 
+	public FilaCircular merge(FilaCircular A, FilaCircular B, int size){
+    
+        FilaCircular R = FilaCircular.cria_fila(size*2); // acertar tamanho
+    	
+    	int auxA = A.remover();
+    	int auxB = B.remover();
+    	
+    	for(int i = 0; i < size*2; i++) {
+    		if(auxA > auxB) {
+    			if(auxA == -1) {
+    				R.inserir(auxA);
+    				auxA = A.remover();
+    			}else{
+        			R.inserir(auxB);
+        			auxB = B.remover();
+    			}
+    			
+    		} else {
+    			
+    			if(auxA == -1) {
+        			R.inserir(auxB);
+        			auxB = B.remover();
+    			} else {
+    				R.inserir(auxA);
+    				auxA = A.remover();
+    			}
+			}	
+    	}
         // Deve retornar uma terceira FilaCircular R, onde R
         // contem o merge de A e B.
-
-        FilaCircular R = FilaCircular.cria_fila( 1 ); // acertar tamanho
+        
         // coloque o código necessário para fazer o merge de A e B.
-
         return R;
     }
 

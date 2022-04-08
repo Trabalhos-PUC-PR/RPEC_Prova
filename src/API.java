@@ -1,5 +1,9 @@
 
 public class API {
+    
+    //Questão 01
+    // imprimir   Início-> [0]: 68 [1]: 35 [2]: 10 [3] : 21 <-Ultimo [4]: 
+    // lista nativa [0] : 10 [1]: 21 [2]: 75 [3] : 68 [4]: 35
     // Questão 02.
     public FilaCircular merge(FilaCircular A, FilaCircular B){
 
